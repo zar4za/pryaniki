@@ -1,8 +1,14 @@
+using Microsoft.EntityFrameworkCore;
+using Pryaniki.Data;
+
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddDbContext<EventContext>(_ => 
+    _.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
+builder.Services.AddTransient<IEventStorage, EventStorage>();
 
 var app = builder.Build();
 

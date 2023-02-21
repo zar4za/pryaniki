@@ -1,7 +1,6 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
+using Pryaniki.Data;
 using Pryaniki.Models;
-using Pryaniki.Services;
 using Pryaniki.Utility;
 
 namespace Pryaniki.Controllers
@@ -10,7 +9,12 @@ namespace Pryaniki.Controllers
     [ApiController]
     public class EventController : ControllerBase
     {
-        private static readonly StorageService _storage = new();
+        private readonly IEventStorage _storage;
+
+        public EventController(IEventStorage storage)
+        {
+            _storage = storage;
+        }
 
         [HttpPost]
         public IActionResult Post(Event action) 
@@ -24,8 +28,7 @@ namespace Pryaniki.Controllers
         public IActionResult Get()
         {
             var time = DateTime.UtcNow.RoundToMinutes();
-            var sum = _storage.Events
-                .Where(e => e.DateTime >= time)
+            var sum = _storage.GetEvents(time)
                 .Sum(e => e.Value);
 
             return Ok(new
