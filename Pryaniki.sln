@@ -5,7 +5,12 @@ VisualStudioVersion = 17.4.33403.182
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Pryaniki", "Pryaniki\Pryaniki.csproj", "{1A52CA0A-2BF8-4204-A519-EE2F420F4EB2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pryaniki.Tests", "Pryaniki.Tests\Pryaniki.Tests.csproj", "{20A42C7A-87E4-42D0-9B14-A8609C0F037C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Pryaniki.Tests", "Pryaniki.Tests\Pryaniki.Tests.csproj", "{20A42C7A-87E4-42D0-9B14-A8609C0F037C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Элементы решения", "Элементы решения", "{734A19DA-D01D-4EE3-9827-9EED19A3576E}"
+	ProjectSection(SolutionItems) = preProject
+		README.md = README.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
